@@ -4,25 +4,30 @@ import com.fastroof.lab3_spring.repository.OrderRepository;
 import com.fastroof.lab3_spring.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class IndexController {
-    @Autowired
-    private RoomRepository fakeRoomRepository;
+
+    private final RoomRepository fakeRoomRepository;
+
+    private final OrderRepository fakeOrderRepository;
 
     @Autowired
-    private OrderRepository fakeOrderRepository;
+    public IndexController(RoomRepository fakeRoomRepository, OrderRepository fakeOrderRepository) {
+        this.fakeRoomRepository = fakeRoomRepository;
+        this.fakeOrderRepository = fakeOrderRepository;
+    }
 
     @GetMapping("/")
-    public String showIndexPage(ModelMap model) {
+    public String showIndexPage(Model model) {
         model.addAttribute("rooms", fakeRoomRepository.getRooms());
-        return "thymeleaf/index";
+        return "index";
     }
 
     @GetMapping("/orders")
-    public String showOrdersPage(ModelMap model) {
+    public String showOrdersPage(Model model) {
         model.addAttribute("orders", fakeOrderRepository.getOrders());
         return "thymeleaf/orders";
     }

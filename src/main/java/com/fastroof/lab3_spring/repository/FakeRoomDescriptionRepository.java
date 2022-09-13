@@ -16,7 +16,7 @@ public class FakeRoomDescriptionRepository implements RoomDescriptionRepository 
     private final List<RoomDescription> roomDescriptions = new ArrayList<>();
 
     public FakeRoomDescriptionRepository(){
-        roomDescriptions.add(new RoomDescription("Test room 1", "Test desc 1", "123 Test st.", new Date()));
-        roomDescriptions.add(new RoomDescription("Test room 2", "Test desc 2", "321 Test st.", new Date()));
+        roomDescriptions.add(new RoomDescription("Test desc 1", "123 Test st.", new Date()));
+        roomDescriptions.add(new RoomDescription("Test desc 2", "321 Test st.", new Date()));
     }
 }

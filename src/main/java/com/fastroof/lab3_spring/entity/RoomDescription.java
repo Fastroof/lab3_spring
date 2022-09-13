@@ -10,7 +10,6 @@ import java.util.Date;
 @NoArgsConstructor
 @ToString
 public class RoomDescription {
-    private String name;
     private String description;
     private String address;
     private Date creationDate;
